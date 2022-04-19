@@ -14,6 +14,7 @@ import React, { cloneElement, createRef, PureComponent } from 'react'
 import { createPortal } from 'react-dom'
 import Draggable from 'react-draggable'
 import Sortable, { Swap } from 'sortablejs'
+import Hls from 'hls.js'
 import AudioListsPanel from './components/AudioListsPanel'
 import CircleProcessBar from './components/CircleProcessBar'
 import {
@@ -75,6 +76,21 @@ import {
 Sortable.mount(new Swap())
 
 const IS_MOBILE = getIsMobile()
+const MEDIATYPES = {
+  M3U8MEDIA: 'm3u8',
+}
+
+// URL 쿼리스트링 제거
+const stripQueryStringAndHashFromPath = (url) => {
+  return url.split('?')[0].split('#')[0]
+}
+
+const detectFileExtension = (url) => {
+  const fileName = stripQueryStringAndHashFromPath(url)
+  const fileNameLength = fileName.length
+  const findFileNameIndot = fileName.lastIndexOf('.')
+  return fileName.substring(findFileNameIndot + 1, fileNameLength).toLowerCase()
+}
 
 const DEFAULT_ICON = {
   pause: <AnimatePauseIcon />,
@@ -184,7 +200,7 @@ export default class ReactJkMusicPlayer extends PureComponent {
     spaceBar: false, // 是否可以通过空格键 控制播放暂停
     showDestroy: false,
     showMediaSession: false,
-    locale: LOCALE.en_US,
+    locale: LOCALE.ko_KR,
     responsive: true,
     icon: DEFAULT_ICON,
     quietUpdate: false, // 更新后的播放列表如果有当前正在播放的歌曲不打断当前播放状态
@@ -206,7 +222,7 @@ export default class ReactJkMusicPlayer extends PureComponent {
     if (typeof locale === 'string') {
       return LOCALE_CONFIG[this.props.locale]
     }
-    return locale ? { ...LOCALE_CONFIG[LOCALE.en_US], ...locale } : {}
+    return locale ? { ...LOCALE_CONFIG[LOCALE.ko_KR], ...locale } : {}
   }
 
   get audioDuration() {
@@ -840,15 +856,36 @@ export default class ReactJkMusicPlayer extends PureComponent {
     const playIndex = audioLists.findIndex(
       (audio) => audio[PLAYER_KEY] === playId,
     )
-    const { name, cover, musicSrc, singer, lyric = '' } =
-      audioLists[playIndex] || {}
+    const {
+      name,
+      cover,
+      musicSrc,
+      singer,
+      lyric = '',
+    } = audioLists[playIndex] || {}
 
     const loadAudio = (originMusicSrc) => {
+      let loadMusicSrc = originMusicSrc
+      if (
+        detectFileExtension(originMusicSrc) === MEDIATYPES.M3U8MEDIA &&
+        Hls.isSupported()
+      ) {
+        const hls = new Hls()
+        hls.loadSource(originMusicSrc)
+        hls.attachMedia(this.audio)
+        loadMusicSrc = this.audio.src
+        this.audio.src = loadMusicSrc
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          // LOADING OK
+        })
+      } else {
+        // GENERAL
+      }
       this.setState(
         {
           name,
           cover,
-          musicSrc: originMusicSrc,
+          musicSrc: loadMusicSrc,
           singer,
           playId,
           lyric,
@@ -996,9 +1033,8 @@ export default class ReactJkMusicPlayer extends PureComponent {
     if (this.state.musicSrc) {
       const { customDownloader } = this.props
       const baseAudioInfo = this.getBaseAudioInfo()
-      const onBeforeAudioDownload = this.props.onBeforeAudioDownload(
-        baseAudioInfo,
-      )
+      const onBeforeAudioDownload =
+        this.props.onBeforeAudioDownload(baseAudioInfo)
       let transformedDownloadAudioInfo = {}
       if (onBeforeAudioDownload && onBeforeAudioDownload.then) {
         onBeforeAudioDownload.then((info) => {
@@ -1259,28 +1295,26 @@ export default class ReactJkMusicPlayer extends PureComponent {
       ) {
         this.setState({ currentVolumeFade: VOLUME_FADE.OUT })
         // Fade in from current volume to 0
-        const {
-          fadeInterval: fadeOutInterval,
-          updateIntervalEndVolume,
-        } = adjustVolume(
-          this.audio,
-          this.audio.volume,
-          0,
-          {
-            duration: fadeOut,
-          },
-          () => {
-            this.audio.pause()
-            this.setState({
-              currentVolumeFade: VOLUME_FADE.NONE,
-              currentVolumeFadeInterval: undefined,
-              playing: false,
-              updateIntervalEndVolume: undefined,
-            })
-            // Restore volume so slider does not reset to zero
-            this.audio.volume = this.getListeningVolume(this.state.soundValue)
-          },
-        )
+        const { fadeInterval: fadeOutInterval, updateIntervalEndVolume } =
+          adjustVolume(
+            this.audio,
+            this.audio.volume,
+            0,
+            {
+              duration: fadeOut,
+            },
+            () => {
+              this.audio.pause()
+              this.setState({
+                currentVolumeFade: VOLUME_FADE.NONE,
+                currentVolumeFadeInterval: undefined,
+                playing: false,
+                updateIntervalEndVolume: undefined,
+              })
+              // Restore volume so slider does not reset to zero
+              this.audio.volume = this.getListeningVolume(this.state.soundValue)
+            },
+          )
 
         this.setState({
           currentVolumeFadeInterval: fadeOutInterval,
@@ -1291,26 +1325,24 @@ export default class ReactJkMusicPlayer extends PureComponent {
         // Start volume may not be 0 if interrupting a fade-out
         const startVolume = isCurrentlyFading ? this.audio.volume : 0
         const endVolume = this.getListeningVolume(this.state.soundValue)
-        const {
-          fadeInterval: fadeInInterval,
-          updateIntervalEndVolume,
-        } = adjustVolume(
-          this.audio,
-          startVolume,
-          endVolume,
-          {
-            duration: fadeIn,
-          },
-          () => {
-            this.setState({
-              currentVolumeFade: VOLUME_FADE.NONE,
-              currentVolumeFadeInterval: undefined,
-              updateIntervalEndVolume: undefined,
-            })
-            // It's possible that the volume level in the UI has changed since beginning of fade
-            this.audio.volume = this.getListeningVolume(this.state.soundValue)
-          },
-        )
+        const { fadeInterval: fadeInInterval, updateIntervalEndVolume } =
+          adjustVolume(
+            this.audio,
+            startVolume,
+            endVolume,
+            {
+              duration: fadeIn,
+            },
+            () => {
+              this.setState({
+                currentVolumeFade: VOLUME_FADE.NONE,
+                currentVolumeFadeInterval: undefined,
+                updateIntervalEndVolume: undefined,
+              })
+              // It's possible that the volume level in the UI has changed since beginning of fade
+              this.audio.volume = this.getListeningVolume(this.state.soundValue)
+            },
+          )
 
         this.setState(
           {
@@ -1720,13 +1752,8 @@ export default class ReactJkMusicPlayer extends PureComponent {
   }
 
   getLastPlayStatus = () => {
-    const {
-      theme,
-      defaultPlayMode,
-      playMode,
-      defaultPlayIndex,
-      playIndex,
-    } = this.props
+    const { theme, defaultPlayMode, playMode, defaultPlayIndex, playIndex } =
+      this.props
 
     const status = {
       currentTime: 0,
@@ -1764,8 +1791,24 @@ export default class ReactJkMusicPlayer extends PureComponent {
   }
 
   play = () => {
+    const originMusicSrc = this.audio.src
+    let playPromise = null
+    if (
+      detectFileExtension(originMusicSrc) === MEDIATYPES.M3U8MEDIA &&
+      Hls.isSupported()
+    ) {
+      const hls = new Hls()
+      hls.loadSource(originMusicSrc)
+      hls.attachMedia(this.audio)
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        playPromise = this.audio.play()
+      })
+    } else {
+      playPromise = this.audio.play()
+    }
+
     // https://developers.google.com/web/updates/2017/06/play-request-was-interrupted
-    const playPromise = this.audio.play()
+    // const playPromise = this.audio.play()
     if (playPromise && playPromise.then) {
       playPromise
         .then(() => {
@@ -1855,8 +1898,13 @@ export default class ReactJkMusicPlayer extends PureComponent {
   _getPlayInfo = (audioLists = []) => {
     const playId = this.getPlayId(audioLists)
 
-    const { name = '', cover = '', singer = '', musicSrc = '', lyric = '' } =
-      audioLists.find((audio) => audio[PLAYER_KEY] === playId) || {}
+    const {
+      name = '',
+      cover = '',
+      singer = '',
+      musicSrc = '',
+      lyric = '',
+    } = audioLists.find((audio) => audio[PLAYER_KEY] === playId) || {}
 
     return {
       name,
@@ -2131,9 +2179,8 @@ export default class ReactJkMusicPlayer extends PureComponent {
     const currentPlayIndex = this.getCurrentPlayIndex()
     if (playIndex !== undefined && currentPlayIndex !== playIndex) {
       this.resetAudioPlayStatus().then(() => {
-        const currentPlayAudio = this.state.audioLists[
-          this.getPlayIndex(playIndex)
-        ]
+        const currentPlayAudio =
+          this.state.audioLists[this.getPlayIndex(playIndex)]
         if (currentPlayAudio && currentPlayAudio[PLAYER_KEY]) {
           this.audioListsPlay(currentPlayAudio[PLAYER_KEY], true)
         }
@@ -2145,7 +2192,17 @@ export default class ReactJkMusicPlayer extends PureComponent {
     this.updatePlayIndex(index)
   }
 
+  // Player 로딩시 처음 실행되는 함수
   getEnhanceAudio = () => {
+    if (
+      detectFileExtension(this.audio.src) === MEDIATYPES.M3U8MEDIA &&
+      Hls.isSupported()
+    ) {
+      const hls = new Hls()
+      hls.loadSource(this.audio.src)
+      hls.attachMedia(this.audio)
+    }
+
     const { audio } = this
     ;[
       {
