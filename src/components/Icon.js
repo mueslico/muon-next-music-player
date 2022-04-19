@@ -24,8 +24,8 @@ export { TiArrowShuffle as ShufflePlayIcon } from '@react-icons/all-files/ti/TiA
 export { TiDownload as DownloadIcon } from '@react-icons/all-files/ti/TiDownload'
 
 export const AnimatePlayIcon = () => (
-  <FaPlayCircle className="react-jinke-music-player-play-icon" />
+  <FaPlayCircle className="muon-next-music-player-play-icon" />
 )
 export const AnimatePauseIcon = () => (
-  <FaPauseCircle className="react-jinke-music-player-pause-icon" />
+  <FaPauseCircle className="muon-next-music-player-pause-icon" />
 )

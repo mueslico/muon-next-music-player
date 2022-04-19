@@ -1,84 +1,51 @@
 <p align="center">
-  <img alt="logo" src="https://github.com/lijinke666/react-music-player/blob/master/assetsImg/logo.png?raw=true" width="100" max-width="100%">
+  <img alt="logo" src="https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/logo.png?raw=true" width="100" max-width="100%">
 </p>
 
 <h1 align="center">
-react-jinke-music-player
+muon-next-music-player
 </h1>
 
 <h4 align="center">
-:musical_note: Maybe the best beautiful HTML5 responsive player component for react : )
+
+본 프로젝트는 [이 프로젝트](https://github.com/lijinke666/react-music-player) 의 포크입니다.<br>
+주식회사 뮤즐리에서 MuOn프로젝트 개발을 위해 사용합니다.
+
 </h4>
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/react-jinke-music-player" title="npm">
-    <img src="https://img.shields.io/npm/dm/react-jinke-music-player.svg?style=flat-square" alt="npm"/>
-  </a>
-  <a href="https://www.npmjs.com/package/react-jinke-music-player" title="npm">
-    <img src="https://img.shields.io/npm/l/react-jinke-music-player.svg?style=flat-square" alt="npm"/>
-  </a>
-  <a href="https://github.com/lijinke666/react-music-player/actions">
-    <img src="https://github.com/lijinke666/react-music-player/workflows/CI/badge.svg" />
-  </a>
-   <a href="https://badge.fury.io/js/react-jinke-music-player" title="npm">
-    <img src="https://img.shields.io/npm/v/react-jinke-music-player.svg?style=flat-square" alt="npm version"/>
-  </a>
-  <a href="https://lgtm.com/projects/g/lijinke666/react-music-player/context:javascript">
-    <img alt="Language grade: JavaScript" src="https://img.shields.io/lgtm/grade/javascript/g/lijinke666/react-music-player.svg?logo=lgtm&logoWidth=18"/>
-  </a>
-  <a href="https://codecov.io/gh/lijinke666/react-music-player">
-    <img src="https://codecov.io/gh/lijinke666/react-music-player/branch/master/graph/badge.svg" />
-  </a>
-  <img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/react-jinke-music-player?style=flat-square">
-  <a href="https://david-dm.org/lijinke666/react-music-player" title="dependencies status"><img src="https://david-dm.org/lijinke666/react-music-player/status.svg"/></a>
-  <a href="https://david-dm.org/lijinke666/react-music-player?type=dev" title="devDependencies status"><img src="https://david-dm.org/lijinke666/react-music-player/dev-status.svg"/></a>
-  <a href="https://github.com/semantic-release/semantic-release" title="semantic-release">
-    <img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="semantic release"/>
-  </a>
-  <a href="https://visitor-badge.glitch.me" title="visitor">
-    <img src="https://visitor-badge.glitch.me/badge?page_id=lijinke666.react-music-player" alt="visitor"/>
-  </a>
-</p>
+## :package: 설치 방법
 
-<p align="center">
-  <a href="https://github.com/lijinke666/react-music-player/blob/master/CN.md">
-    中文文档
-  </a>
-</p>
-
-## :package: Installation
-
-using `yarn` :
+`yarn`을 사용하는 경우 :
 
 ```bash
-yarn add react-jinke-music-player
+yarn add muon-next-music-player
 ```
 
-using `npm` :
+`npm`을 사용하는 경우 :
 
 ```bash
-npm install react-jinke-music-player --save
+npm install muon-next-music-player --save
 ```
 
-## :framed_picture: Screenshots
+## :framed_picture: 스크린샷
 
-> mini mode <br/>
+> 미니모드 <br/>
 
-![mini mode](https://github.com/lijinke666/react-music-player/blob/master/assetsImg/mini.png?raw=true)
+![mini mode](https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/mini.png?raw=true)
 
-> Light Theme <br/>
+> 밝은 테마 <br/>
 
-![light theme](https://github.com/lijinke666/react-music-player/blob/master/assetsImg/light-theme.png?raw=true)
+![light theme](https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/light-theme.png?raw=true)
 
-> Dark Theme <br/>
+> 어두운 테마 <br/>
 
-![dark theme](https://github.com/lijinke666/react-music-player/blob/master/assetsImg/dark-theme.png?raw=true)
+![dark theme](https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/dark-theme.png?raw=true)
 
-> mobile <br/>
+> 모바일 버전 <br/>
 
-![mobile](https://github.com/lijinke666/react-music-player/blob/master/assetsImg/mobile.jpg?raw=true)
+![mobile](https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/mobile.jpg?raw=true)
 
-## :sparkles: Feature list
+## :sparkles: 진행 목록
 
 - [x] Beautiful ui and animation
 - [x] Responsive
@@ -103,26 +70,16 @@ npm install react-jinke-music-player --save
 - [x] [Follow the theme of the system](#bulb-follow-the-theme-of-the-system) (v4.16.0)
 - [x] [Audio volume fadeIn/fadeOut](#bulb-audio-volume-fade-in-and-fade-out) (v4.20.0)
 
-## :eyes: Example
-
-> live example :
-
-- [https://lijinke666.github.io/react-music-player/](https://lijinke666.github.io/react-music-player/)
-
-> local example : [http://localhost:8081/](http://localhost:8081/)
-
-[Source Code](https://github.com/lijinke666/react-music-player/blob/master/example/example.js)
-
-## :memo: Usage
+## :memo: 사용방법
 
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
-import ReactJkMusicPlayer from 'react-jinke-music-player'
-import 'react-jinke-music-player/assets/index.css'
+import ReactMuOnMusicPlayer from 'muon-next-music-player'
+import 'muon-next-music-player/assets/index.css'
 
 ReactDOM.render(
-  <ReactJkMusicPlayer {...options} />,
+  <ReactMuOnMusicPlayer {...options} />,
   document.getElementById('root'),
 )
 ```
@@ -188,7 +145,7 @@ ReactDOM.render(
 | getContainer | `() => HTMLElement` \| `Selectors` | `document.body` | Return the mount node for Music player |
 | getAudioInstance | `(instance: HTMLAudioElement) => void` | `-` | get origin audio element instance , you can use it do everything |
 | autoHiddenCover | `boolean` | `false` | Auto hide the cover photo if no cover photo is available |
-| onBeforeAudioDownload | `(audioInfo: ReactJkMusicPlayerAudioInfo) => Promise<TransformedDownloadAudioInfo>` | `-` | transform download audio info before |
+| onBeforeAudioDownload | `(audioInfo: ReactMuOnMusicPlayerAudioInfo) => Promise<TransformedDownloadAudioInfo>` | `-` | transform download audio info before |
 | clearPriorAudioLists | `boolean` | `false` | Replace a new playlist with the first loaded playlist and reset playIndex to 0 |
 | autoPlayInitLoadPlayList | `boolean` | `false` | Play your new play list right after your new play list is loaded turn false. |
 | spaceBar | `boolean` | `false` | Play and pause audio through space bar （Desktop effective）. |
@@ -205,7 +162,7 @@ ReactDOM.render(
 | sortableOptions | `object` | `{swap: true, animation: 100, swapClass: 'audio-lists-panel-sortable-highlight-bg'}` | [SortableJs Options](https://github.com/SortableJS/Sortable#options) |
 | restartCurrentOnPrev | `boolean` | `false` | Restarts the current track when trying to play previous song, if the current time of the song is more than 1 second |
 
-## :bulb: Custom operation ui
+## :bulb: 오퍼레이션 UI 커스터마이징
 
 Support feature:
 
@@ -233,7 +190,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <ReactJkMusicPlayer
+        <ReactMuOnMusicPlayer
           getAudioInstance={(instance) => {
             this.audioInstance = instance
           }}
@@ -267,18 +224,18 @@ class App extends React.Component {
 }
 ```
 
-## :bulb: Glass bg
+## :bulb: 흐린 배경
 
 ```jsx
-<ReactJkMusicPlayer glassBg />
+<ReactMuOnMusicPlayer glassBg />
 ```
 
 <p>
-<img alt="glass-1" src="https://github.com/lijinke666/react-music-player/blob/master/assetsImg/glass-1.png?raw=true" width="200" max-width="49%">
-<img alt="glass-2" src="https://github.com/lijinke666/react-music-player/blob/master/assetsImg/glass-2.png?raw=true" width="200" max-width="49%">
+<img alt="glass-1" src="https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/glass-1.png?raw=true" width="200" max-width="49%">
+<img alt="glass-2" src="https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/glass-2.png?raw=true" width="200" max-width="49%">
 </p>
 
-## :bulb: Custom downloader
+## :bulb: 커스텀 다운로더 구현
 
 Default use [downloadjs](https://github.com/rndme/download), you can use any download library
 
@@ -293,7 +250,7 @@ const customDownloader = (downloadInfo) => {
   link.click()
 }
 
-;<ReactJkMusicPlayer
+;<ReactMuOnMusicPlayer
   audioLists={[{ src: 'a.mp3' }]}
   customDownloader={customDownloader}
 />
@@ -309,13 +266,13 @@ const customDownloader = (downloadInfo) => {
   console.log(downloadInfo.src) // 1.mp3
 }
 
-;<ReactJkMusicPlayer
+;<ReactMuOnMusicPlayer
   customDownloader={customDownloader}
   onBeforeAudioDownload={onBeforeAudioDownload}
 />
 ```
 
-## :bulb: Destroy player
+## :bulb: 플레이어 제거
 
 ```jsx
 const onBeforeDestroy = (currentPlayId, audioLists, audioInfo) => {
@@ -335,37 +292,37 @@ const onDestroyed = (currentPlayId, audioLists, audioInfo) => {
   console.log('onDestroyed:', currentPlayId, audioLists, audioInfo)
 }
 
-;<ReactJkMusicPlayer
+;<ReactMuOnMusicPlayer
   showDestroy
   onBeforeDestroy={onBeforeDestroy}
   onDestroyed={onDestroyed}
 />
 ```
 
-## :bulb: Media session
+## :bulb: 미디어 세션
 
 > <https://web.dev/media-session/>
 
 ```jsx
-// so cool, so easy !!!
-<ReactJkMusicPlayer showMediaSession />
+// 매우 쉽고 매우 간단해요!!!
+<ReactMuOnMusicPlayer showMediaSession />
 ```
 
-<img src="https://github.com/lijinke666/react-music-player/blob/master/assetsImg/media-session-destop.png" max-width="100%"/>
-<img src="https://github.com/lijinke666/react-music-player/blob/master/assetsImg/media-session-mobile.jpeg" width="400" max-width="100%"/>
+<img src="https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/media-session-destop.png" max-width="100%"/>
+<img src="https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/media-session-mobile.jpeg" width="400" max-width="100%"/>
 
-## :bulb: Internationalization
+## :bulb: 다국어 지원(i18n)
 
 > Version: 4.11.0
 
-[Source](https://github.com/lijinke666/react-music-player/blob/master/src/locale/index.js)
+[Source](https://github.com/mueslico/muon-next-music-player/blob/master/src/locale/index.js)
 
 ```jsx
-import Locale from 'react-jinke-music-player/lib/config/locale'
+import Locale from 'muon-next-music-player/lib/config/locale'
 // Two languages are provided by default
-// one of zh_CN | en_US
-<ReactJkMusicPlayer locale={Locale.zh_CN}/>
-// <ReactJkMusicPlayer locale={'en_US'}/>
+// one of zh_CN | en_US | ko_KR
+<ReactMuOnMusicPlayer locale={Locale.ko_KR}/>
+// <ReactMuOnMusicPlayer locale={'en_US'}/>
 
 // Custom override
 const customLocale = {
@@ -400,18 +357,18 @@ const customLocale = {
   // audioTitle: (audioInfo) => ``
 }
 
-<ReactJkMusicPlayer locale={customLocale}/>
+<ReactMuOnMusicPlayer locale={customLocale}/>
 
 // Support partial override, auto merge
 
-<ReactJkMusicPlayer locale={{ audioTitle: "xxx" }}/>
+<ReactMuOnMusicPlayer locale={{ audioTitle: "xxx" }}/>
 ```
 
-## :bulb: Customize Theme
+## :bulb: 테마 커스터마이징
 
 ```jsx
-import ReactJkMusicPlayer from 'react-jinke-music-player'
-import 'react-jinke-music-player/lib/styles/index.less'
+import ReactMuOnMusicPlayer from 'muon-next-music-player'
+import 'muon-next-music-player/lib/styles/index.less'
 ```
 
 ```less
@@ -444,7 +401,7 @@ import 'react-jinke-music-player/lib/styles/index.less'
 @player-lyric-z-index: 999;
 ```
 
-> Customize in webpack
+> 웹팩 커스터마이징
 
 ```diff
 // webpack.config.js
@@ -469,29 +426,29 @@ module.exports = {
 }
 ```
 
-> Customize in less file
+> less 파일 커스타마이징
 
 ```less
-@import 'react-jinke-music-player/lib/styles/index.less';
+@import 'muon-next-music-player/lib/styles/index.less';
 @import 'your-theme-file.less';
 ```
 
-## :bulb: Customize audio duration
+## :bulb: 오디오 재생시간(최대 길이) 커스터마이징 
 
 > Default: by this.audio.duration, if cannot get current play audio's duration, you can customize to set.
 
 ```jsx
-<ReactJkMusicPlayer audioLists={[{
+<ReactMuOnMusicPlayer audioLists={[{
   ...
   duration: 100.00
 }]} />
 
 ```
 
-## :bulb: Customize player icon
+## :bulb: 플레이어 아이콘 커스터마이징
 
 ```ts
-export interface ReactJkMusicPlayerIcon {
+export interface ReactMuOnMusicPlayerIcon {
   pause?: React.ReactNode | string
   play?: React.ReactNode | string
   destroy?: React.ReactNode | string
@@ -514,15 +471,15 @@ export interface ReactJkMusicPlayerIcon {
 }
 ```
 
-## :bulb: Follow the theme of the system
+## :bulb: 시스템 컬러에 맞춰 테마 변경
 
 ```jsx
-<ReactJkMusicPlayer theme="auto" />
+<ReactMuOnMusicPlayer theme="auto" />
 ```
 
-![auto-theme](https://github.com/lijinke666/react-music-player/blob/master/assetsImg/auto-theme.gif?raw=true)
+![auto-theme](https://github.com/mueslico/muon-next-music-player/blob/master/assetsImg/auto-theme.gif?raw=true)
 
-## :bulb: Quiet update
+## :bulb: 플레이리스트 조용하게 업데이트
 
 ```jsx
 /**
@@ -549,7 +506,7 @@ function App() {
   }, [setAudioLists])
 
   return (
-    <ReactJkMusicPlayer
+    <ReactMuOnMusicPlayer
       quietUpdate
       clearPriorAudioLists
       audioLists={audioLists}
@@ -558,7 +515,7 @@ function App() {
 }
 ```
 
-## :bulb: Import in browser
+## :bulb: 브라우저에 불러오기
 
 ```html
 <!DOCTYPE html>
@@ -566,7 +523,7 @@ function App() {
   <head>
     <link
       rel="stylesheet"
-      href="https://unpkg.com/react-jinke-music-player@4.18.1/assets/index.css"
+      href="https://unpkg.com/muon-next-music-player@10.0.2/assets/index.css"
     />
   </head>
   <body>
@@ -574,25 +531,25 @@ function App() {
   </body>
   <script src="https://unpkg.com/react@16.13.1/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@16.13.1/umd/react-dom.production.min.js"></script>
-  <script src="https://unpkg.com/react-jinke-music-player@4.18.1/dist/react-jinke-music-player.min.js"></script>
+  <script src="https://unpkg.com/muon-next-music-player@10.0.2/dist/muon-next-music-player.min.js"></script>
   <script>
     ReactDOM.render(
-      React.createElement(ReactJkMusicPlayer),
+      React.createElement(ReactMuOnMusicPlayer),
       document.getElementById('root'),
     )
   </script>
 </html>
 ```
 
-## :bulb: Server-Side Rendering
+## :bulb: SSR(서버사이드 랜더링)
 
 ```jsx
 // components/Player.js
 import React from 'react'
-import ReactJkMusicPlayer from 'react-jinke-music-player'
-import styles from 'react-jinke-music-player/assets/index.module.css'
+import ReactMuOnMusicPlayer from 'muon-next-music-player'
+import styles from 'muon-next-music-player/assets/index.module.css'
 
-export const Player = () => <ReactJkMusicPlayer />
+export const Player = () => <ReactMuOnMusicPlayer />
 
 // pages/_app.js
 import dynamic from 'next/dynamic'
@@ -601,31 +558,31 @@ const PlayerWithNoSSR = dynamic(() => import('../components/Player'), {
 })
 ```
 
-## :bulb: Customize mobile media query
+## :bulb: 모바일 미디어 쿼리 커스터마이징
 
 > eg. Use mobile UI on a iPad device
 
 ```jsx
 // Default '(max-width: 768px) and (orientation : portrait)'
-<ReactJkMusicPlayer mobileMediaQuery="(max-width: 1024px)" />
+<ReactMuOnMusicPlayer mobileMediaQuery="(max-width: 1024px)" />
 ```
 
-## :bulb: Audio volume fade in and fade out
+## :bulb: 오디오 볼륨 페이드인 및 페이드 아웃 처리
 
 ```jsx
-<ReactJkMusicPlayer volumeFade={{ fadeIn: 500, fadeOut: 500 }} />
+<ReactMuOnMusicPlayer volumeFade={{ fadeIn: 500, fadeOut: 500 }} />
 ```
 
-## :pencil: Development
+## :pencil: 개발방법
 
 ```bash
-git clone https://github.com/lijinke666/react-music-player.git
+git clone https://github.com/mueslico/muon-next-music-player.git
 yarn # npm install
 yarn start # npm start
 open `http://localhost:8084/`
 ```
 
-## :hourglass: Test case
+## :hourglass: 테스트 케이스
 
 ```bash
 npm run test
@@ -636,7 +593,7 @@ npm run test
 > Like This
 
 ```ts
-interface ReactJkMusicPlayerAudioListProps {
+interface ReactMuOnMusicPlayerAudioListProps {
   name: string | React.ReactNode,
   musicSrc: string | () => Promise<string>,
   cover: string,
@@ -652,7 +609,7 @@ interface ReactJkMusicPlayerAudioListProps {
 > Like This
 
 ```ts
-interface ReactJkMusicPlayerAudioInfo {
+interface ReactMuOnMusicPlayerAudioInfo {
   cover: string
   currentTime: number
   duration: number
@@ -670,13 +627,3 @@ interface ReactJkMusicPlayerAudioInfo {
   [key: string]: any
 }
 ```
-
-## :two_men_holding_hands: Contributors
-
-> Special thanks: @JeffreyCA
-
-![https://github.com/lijinke666/react-music-player/graphs/contributors](https://contrib.rocks/image?repo=lijinke666/react-music-player)
-
-## :page_facing_up: License
-
-[MIT](https://github.com/lijinke666/react-music-player/blob/master/LICENCE)

@@ -11,7 +11,7 @@ module.exports = {
     [pkg.name]: path.resolve(__dirname, 'src/index'),
   },
   output: {
-    library: 'ReactJkMusicPlayer',
+    library: 'ReactMuOnMusicPlayer',
     libraryTarget: 'umd',
     umdNamedDefine: true, // 是否将模块名称作为 AMD 输出的命名空间
     path: path.resolve(__dirname, 'dist'),

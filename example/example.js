@@ -3,7 +3,7 @@ import Switch from 'rc-switch'
 import React from 'react'
 import { hot } from 'react-hot-loader/root'
 import pkg from '../package.json'
-import ReactJkMusicPlayer from '../src'
+import ReactMuOnMusicPlayer from '../src'
 import Locale from '../src/config/locale'
 import PLAY_MODE from '../src/config/playMode'
 import '../src/styles/index.less'
@@ -615,7 +615,7 @@ class Demo extends React.PureComponent {
 
   renderCustomAudioTitle = () => {
     this.updateParams({
-      renderAudioTitle: (audioInfo, isMobile) => {
+      renderAudioTitle: (audioInfo) => {
         return (
           <>
             <a href="#">{audioInfo.name}</a>
@@ -722,11 +722,11 @@ class Demo extends React.PureComponent {
         </h1>
         <p className="version">
           <a
-            href="https://badge.fury.io/js/react-jinke-music-playerr"
+            href="https://badge.fury.io/js/muon-next-music-playerr"
             title="npm"
           >
             <img
-              src="https://img.shields.io/npm/v/react-jinke-music-player.svg?style=flat-square"
+              src="https://img.shields.io/npm/v/muon-next-music-player.svg?style=flat-square"
               alt="npm version"
             />
           </a>
@@ -1035,7 +1035,7 @@ class Demo extends React.PureComponent {
           <div>{this.renderCustomUI()}</div>
         </section>
         {unmount ? null : (
-          <ReactJkMusicPlayer
+          <ReactMuOnMusicPlayer
             {...params}
             onThemeChange={(theme) => {
               console.log('onThemeChange: ', theme)

@@ -1,5 +1,5 @@
 /**
- * @name react-jinke-music-player
+ * @name muon-next-music-player
  * @description Maybe the best beautiful HTML5 responsive player component for react :)
  * @author Jinke.Li <1359518268@qq.com>
  * @license MIT
@@ -116,7 +116,7 @@ const DEFAULT_ICON = {
   empty: <EmptyIcon />,
 }
 
-export default class ReactJkMusicPlayer extends PureComponent {
+export default class ReactMuOnMusicPlayer extends PureComponent {
   isDrag = false
 
   initPlayId = '' // 初始播放id
@@ -445,7 +445,7 @@ export default class ReactJkMusicPlayer extends PureComponent {
 
     const AudioController = (
       <div
-        className={cls('react-jinke-music-player')}
+        className={cls('muon-next-music-player')}
         style={defaultPosition}
         tabIndex="-1"
       >
@@ -495,7 +495,7 @@ export default class ReactJkMusicPlayer extends PureComponent {
     return createPortal(
       <div
         className={cls(
-          'react-jinke-music-player-main',
+          'muon-next-music-player-main',
           {
             'light-theme': theme === THEME.LIGHT,
             'dark-theme': theme === THEME.DARK,
@@ -807,7 +807,7 @@ export default class ReactJkMusicPlayer extends PureComponent {
   // 渲染播放模式 对应按钮
   renderPlayModeIcon = (playMode) => {
     const animateProps = {
-      className: 'react-jinke-music-player-mode-icon',
+      className: 'muon-next-music-player-mode-icon',
     }
     let IconNode = null
     switch (playMode) {

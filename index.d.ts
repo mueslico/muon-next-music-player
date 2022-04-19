@@ -1,6 +1,6 @@
 import * as React from 'react'
 
-export interface ReactJkMusicPlayerAudioInfo {
+export interface ReactMuOnMusicPlayerAudioInfo {
   cover: string
   currentTime: number
   duration: number
@@ -21,15 +21,15 @@ export interface ReactJkMusicPlayerAudioInfo {
   [key: string]: any
 }
 
-export type ReactJkMusicPlayerTheme = 'dark' | 'light' | 'auto'
-export type ReactJkMusicPlayerMode = 'mini' | 'full'
-export type ReactJkMusicPlayerPlayMode =
+export type ReactMuOnMusicPlayerTheme = 'dark' | 'light' | 'auto'
+export type ReactMuOnMusicPlayerMode = 'mini' | 'full'
+export type ReactMuOnMusicPlayerPlayMode =
   | 'order'
   | 'orderLoop'
   | 'singleLoop'
   | 'shufflePlay'
 
-export interface ReactJkMusicPlayerAudioListProps {
+export interface ReactMuOnMusicPlayerAudioListProps {
   name: React.ReactNode
   musicSrc: (() => Promise<string>) | string
   singer?: React.ReactNode
@@ -39,7 +39,7 @@ export interface ReactJkMusicPlayerAudioListProps {
   [key: string]: any
 }
 
-export interface ReactJkMusicPlayerInstance extends HTMLAudioElement {
+export interface ReactMuOnMusicPlayerInstance extends HTMLAudioElement {
   destroy?: () => void
   updatePlayIndex?: (index: number) => void
   playByIndex?: (index: number) => void
@@ -50,7 +50,7 @@ export interface ReactJkMusicPlayerInstance extends HTMLAudioElement {
   sortable?: any
 }
 
-export interface ReactJkMusicPlayerIcon {
+export interface ReactMuOnMusicPlayerIcon {
   pause?: React.ReactNode
   play?: React.ReactNode
   destroy?: React.ReactNode
@@ -72,7 +72,7 @@ export interface ReactJkMusicPlayerIcon {
   loading?: React.ReactNode
 }
 
-export interface ReactJkMusicPlayerCustomLocale {
+export interface ReactMuOnMusicPlayerCustomLocale {
   playModeText: {
     order: React.ReactNode
     orderLoop: React.ReactNode
@@ -102,10 +102,10 @@ export interface ReactJkMusicPlayerCustomLocale {
   emptyLyricText: React.ReactNode
 }
 
-export type ReactJkMusicPlayerLocale =
+export type ReactMuOnMusicPlayerLocale =
   | 'zh_CN'
   | 'en_US'
-  | ReactJkMusicPlayerCustomLocale
+  | ReactMuOnMusicPlayerCustomLocale
 
 export interface TransformedDownloadAudioInfo {
   src: string
@@ -113,16 +113,16 @@ export interface TransformedDownloadAudioInfo {
   mimeType?: string
 }
 
-export interface ReactJkMusicPlayerProps {
+export interface ReactMuOnMusicPlayerProps {
   style?: React.CSSProperties
   className?: string
-  audioLists: Array<ReactJkMusicPlayerAudioListProps>
-  locale?: ReactJkMusicPlayerLocale
-  icon?: ReactJkMusicPlayerIcon
-  theme?: ReactJkMusicPlayerTheme
-  mode?: ReactJkMusicPlayerMode
-  defaultPlayMode?: ReactJkMusicPlayerPlayMode
-  playMode?: ReactJkMusicPlayerPlayMode
+  audioLists: Array<ReactMuOnMusicPlayerAudioListProps>
+  locale?: ReactMuOnMusicPlayerLocale
+  icon?: ReactMuOnMusicPlayerIcon
+  theme?: ReactMuOnMusicPlayerTheme
+  mode?: ReactMuOnMusicPlayerMode
+  defaultPlayMode?: ReactMuOnMusicPlayerPlayMode
+  playMode?: ReactMuOnMusicPlayerPlayMode
   drag?: boolean
   seeked?: boolean
   autoPlay?: boolean
@@ -134,45 +134,45 @@ export interface ReactJkMusicPlayerProps {
   }
   responsive?: boolean
   quietUpdate?: boolean
-  onAudioPlay?: (audioInfo: ReactJkMusicPlayerAudioInfo) => void
-  onAudioPause?: (audioInfo: ReactJkMusicPlayerAudioInfo) => void
+  onAudioPlay?: (audioInfo: ReactMuOnMusicPlayerAudioInfo) => void
+  onAudioPause?: (audioInfo: ReactMuOnMusicPlayerAudioInfo) => void
   onAudioEnded?: (
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => void
   onAudioAbort?: (
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => void
   onAudioVolumeChange?: (volume: number) => void
   onAudioError?: (
     error: any,
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => void
-  onAudioProgress?: (audioInfo: ReactJkMusicPlayerAudioInfo) => void
-  onAudioSeeked?: (audioInfo: ReactJkMusicPlayerAudioInfo) => void
+  onAudioProgress?: (audioInfo: ReactMuOnMusicPlayerAudioInfo) => void
+  onAudioSeeked?: (audioInfo: ReactMuOnMusicPlayerAudioInfo) => void
   onAudioDownload?: (
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
     transformedDownloadAudioInfo: TransformedDownloadAudioInfo,
   ) => void
-  onAudioReload?: (audioInfo: ReactJkMusicPlayerAudioInfo) => void
-  onThemeChange?: (theme: ReactJkMusicPlayerTheme) => void
+  onAudioReload?: (audioInfo: ReactMuOnMusicPlayerAudioInfo) => void
+  onThemeChange?: (theme: ReactMuOnMusicPlayerTheme) => void
   onAudioListsChange?: (
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => void
-  onPlayModeChange?: (playMode: ReactJkMusicPlayerPlayMode) => void
-  onModeChange?: (mode: ReactJkMusicPlayerMode) => void
+  onPlayModeChange?: (playMode: ReactMuOnMusicPlayerPlayMode) => void
+  onModeChange?: (mode: ReactMuOnMusicPlayerMode) => void
   onAudioListsPanelChange?: (panelVisible: boolean) => void
   onAudioPlayTrackChange?: (
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => void
   onAudioListsSortEnd?: (oldIndex: number, newIndex: number) => void
   showDownload?: boolean
@@ -200,33 +200,33 @@ export interface ReactJkMusicPlayerProps {
   lyricClassName?: string
   showLyric?: boolean
   getContainer?: () => HTMLElement
-  getAudioInstance?: (instance: ReactJkMusicPlayerInstance) => void
+  getAudioInstance?: (instance: ReactMuOnMusicPlayerInstance) => void
   autoHiddenCover?: boolean
   onBeforeAudioDownload?: (
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => Promise<TransformedDownloadAudioInfo>
   clearPriorAudioLists?: boolean
   autoPlayInitLoadPlayList?: boolean
   spaceBar?: boolean
   onBeforeDestroy?: (
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => Promise<void>
   onDestroyed?: (
     currentPlayId: string,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => Promise<void>
   customDownloader?: (downloadAudioInfo: TransformedDownloadAudioInfo) => void
   onCoverClick?: (
-    mode: ReactJkMusicPlayerMode,
-    audioLists: Array<ReactJkMusicPlayerAudioListProps>,
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    mode: ReactMuOnMusicPlayerMode,
+    audioLists: Array<ReactMuOnMusicPlayerAudioListProps>,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
   ) => void
   onPlayIndexChange?: (playIndex: number) => void
   renderAudioTitle?: (
-    audioInfo: ReactJkMusicPlayerAudioInfo,
+    audioInfo: ReactMuOnMusicPlayerAudioInfo,
     isMobile: boolean,
   ) => React.ReactNode
   mobileMediaQuery?: string
@@ -238,7 +238,7 @@ export interface ReactJkMusicPlayerProps {
   sortableOptions?: object
 }
 
-export default class ReactJkMusicPlayer extends React.PureComponent<
-  ReactJkMusicPlayerProps,
+export default class ReactMuOnMusicPlayer extends React.PureComponent<
+  ReactMuOnMusicPlayerProps,
   any
 > {}

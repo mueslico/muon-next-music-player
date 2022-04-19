@@ -2,7 +2,7 @@ import cls from 'classnames'
 import React, { isValidElement, memo } from 'react'
 import PlayModeTip from './PlayModeTip'
 
-const prefix = 'react-jinke-music-player-mobile'
+const prefix = 'muon-next-music-player-mobile'
 
 const PlayerMobile = ({
   name,
