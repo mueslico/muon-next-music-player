@@ -1,7 +1,7 @@
 /**
  * @name muon-next-music-player
- * @description Maybe the best beautiful HTML5 responsive player component for react :)
- * @author Jinke.Li <1359518268@qq.com>
+ * @description Forked jinke player using muonmusic.com
+ * @author MUESLI Co., Ltd. <https://github.com/mueslico>
  * @license MIT
  */
 
