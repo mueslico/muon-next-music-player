@@ -856,13 +856,8 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
     const playIndex = audioLists.findIndex(
       (audio) => audio[PLAYER_KEY] === playId,
     )
-    const {
-      name,
-      cover,
-      musicSrc,
-      singer,
-      lyric = '',
-    } = audioLists[playIndex] || {}
+    const { name, cover, musicSrc, singer, lyric = '' } =
+      audioLists[playIndex] || {}
 
     const loadAudio = (originMusicSrc) => {
       let loadMusicSrc = originMusicSrc
@@ -1033,8 +1028,9 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
     if (this.state.musicSrc) {
       const { customDownloader } = this.props
       const baseAudioInfo = this.getBaseAudioInfo()
-      const onBeforeAudioDownload =
-        this.props.onBeforeAudioDownload(baseAudioInfo)
+      const onBeforeAudioDownload = this.props.onBeforeAudioDownload(
+        baseAudioInfo,
+      )
       let transformedDownloadAudioInfo = {}
       if (onBeforeAudioDownload && onBeforeAudioDownload.then) {
         onBeforeAudioDownload.then((info) => {
@@ -1295,26 +1291,28 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
       ) {
         this.setState({ currentVolumeFade: VOLUME_FADE.OUT })
         // Fade in from current volume to 0
-        const { fadeInterval: fadeOutInterval, updateIntervalEndVolume } =
-          adjustVolume(
-            this.audio,
-            this.audio.volume,
-            0,
-            {
-              duration: fadeOut,
-            },
-            () => {
-              this.audio.pause()
-              this.setState({
-                currentVolumeFade: VOLUME_FADE.NONE,
-                currentVolumeFadeInterval: undefined,
-                playing: false,
-                updateIntervalEndVolume: undefined,
-              })
-              // Restore volume so slider does not reset to zero
-              this.audio.volume = this.getListeningVolume(this.state.soundValue)
-            },
-          )
+        const {
+          fadeInterval: fadeOutInterval,
+          updateIntervalEndVolume,
+        } = adjustVolume(
+          this.audio,
+          this.audio.volume,
+          0,
+          {
+            duration: fadeOut,
+          },
+          () => {
+            this.audio.pause()
+            this.setState({
+              currentVolumeFade: VOLUME_FADE.NONE,
+              currentVolumeFadeInterval: undefined,
+              playing: false,
+              updateIntervalEndVolume: undefined,
+            })
+            // Restore volume so slider does not reset to zero
+            this.audio.volume = this.getListeningVolume(this.state.soundValue)
+          },
+        )
 
         this.setState({
           currentVolumeFadeInterval: fadeOutInterval,
@@ -1325,24 +1323,26 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
         // Start volume may not be 0 if interrupting a fade-out
         const startVolume = isCurrentlyFading ? this.audio.volume : 0
         const endVolume = this.getListeningVolume(this.state.soundValue)
-        const { fadeInterval: fadeInInterval, updateIntervalEndVolume } =
-          adjustVolume(
-            this.audio,
-            startVolume,
-            endVolume,
-            {
-              duration: fadeIn,
-            },
-            () => {
-              this.setState({
-                currentVolumeFade: VOLUME_FADE.NONE,
-                currentVolumeFadeInterval: undefined,
-                updateIntervalEndVolume: undefined,
-              })
-              // It's possible that the volume level in the UI has changed since beginning of fade
-              this.audio.volume = this.getListeningVolume(this.state.soundValue)
-            },
-          )
+        const {
+          fadeInterval: fadeInInterval,
+          updateIntervalEndVolume,
+        } = adjustVolume(
+          this.audio,
+          startVolume,
+          endVolume,
+          {
+            duration: fadeIn,
+          },
+          () => {
+            this.setState({
+              currentVolumeFade: VOLUME_FADE.NONE,
+              currentVolumeFadeInterval: undefined,
+              updateIntervalEndVolume: undefined,
+            })
+            // It's possible that the volume level in the UI has changed since beginning of fade
+            this.audio.volume = this.getListeningVolume(this.state.soundValue)
+          },
+        )
 
         this.setState(
           {
@@ -1752,8 +1752,13 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
   }
 
   getLastPlayStatus = () => {
-    const { theme, defaultPlayMode, playMode, defaultPlayIndex, playIndex } =
-      this.props
+    const {
+      theme,
+      defaultPlayMode,
+      playMode,
+      defaultPlayIndex,
+      playIndex,
+    } = this.props
 
     const status = {
       currentTime: 0,
@@ -1898,13 +1903,8 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
   _getPlayInfo = (audioLists = []) => {
     const playId = this.getPlayId(audioLists)
 
-    const {
-      name = '',
-      cover = '',
-      singer = '',
-      musicSrc = '',
-      lyric = '',
-    } = audioLists.find((audio) => audio[PLAYER_KEY] === playId) || {}
+    const { name = '', cover = '', singer = '', musicSrc = '', lyric = '' } =
+      audioLists.find((audio) => audio[PLAYER_KEY] === playId) || {}
 
     return {
       name,
@@ -2179,8 +2179,9 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
     const currentPlayIndex = this.getCurrentPlayIndex()
     if (playIndex !== undefined && currentPlayIndex !== playIndex) {
       this.resetAudioPlayStatus().then(() => {
-        const currentPlayAudio =
-          this.state.audioLists[this.getPlayIndex(playIndex)]
+        const currentPlayAudio = this.state.audioLists[
+          this.getPlayIndex(playIndex)
+        ]
         if (currentPlayAudio && currentPlayAudio[PLAYER_KEY]) {
           this.audioListsPlay(currentPlayAudio[PLAYER_KEY], true)
         }
@@ -2482,7 +2483,7 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
   }
 
   // eslint-disable-next-line camelcase
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     const { audioLists, remember } = this.props
 
     if (Array.isArray(audioLists) && audioLists.length >= 1) {

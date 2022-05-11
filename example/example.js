@@ -12,24 +12,10 @@ import './example.less'
 
 const audioList1 = [
   {
-    name: 'Despacito',
-    singer: 'Luis Fonsi',
-    cover:
-      'http://res.cloudinary.com/alick/image/upload/v1502689731/Despacito_uvolhp.jpg',
-    musicSrc:
-      'http://res.cloudinary.com/alick/video/upload/v1502689683/Luis_Fonsi_-_Despacito_ft._Daddy_Yankee_uyvqw9.mp3',
-    // support async fetch music src. eg.
-    // musicSrc: async () => {
-    //   return await fetch('/api')
-    // },
-  },
-  {
-    name: 'Dorost Nemisham',
-    singer: 'Sirvan Khosravi',
-    cover:
-      'https://res.cloudinary.com/ehsanahmadi/image/upload/v1573758778/Sirvan-Khosravi-Dorost-Nemisham_glicks.jpg',
-    musicSrc:
-      'https://res.cloudinary.com/ehsanahmadi/video/upload/v1573550770/Sirvan-Khosravi-Dorost-Nemisham-128_kb8urq.mp3',
+    name: '유키토키 - 애니메이션 "내 청춘 러브 코메디는 잘못 되어 있다" 1기 OP',
+    singer: '야나기나기',
+    cover: 'http://i.ytimg.com/vi/YQeeKtjcbG8/0.jpg',
+    musicSrc: 'https://media.muesli/yukitoki/output.m3u8',
   },
 ]
 
@@ -465,12 +451,11 @@ class Demo extends React.PureComponent {
     this.updateParams({
       clearPriorAudioLists: false,
       audioLists: [
-        ...this.state.params.audioLists,
         {
-          name: "I'm new here",
-          singer: 'jack',
-          cover: 'http://www.lijinke.cn/music/1387583682387727.jpg',
-          musicSrc: `http://www.lijinke.cn/music/${Date.now()}.mp3`,
+          name: '내가 곁에 있을 동안에(あたしが隣にいるうちに)',
+          singer: '후지카와 치아이',
+          cover: 'https://i.ibb.co/N2z2r3C/chiai.jpg',
+          musicSrc: 'https://media.muesli/sample/index.m3u8',
         },
       ],
     })

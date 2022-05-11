@@ -12,3 +12,4 @@ coverage
 example/dist
 .vscode
 main.js
+yarn.lock
