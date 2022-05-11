@@ -2451,7 +2451,7 @@ export default class ReactMuOnMusicPlayer extends PureComponent {
   }
 
   // eslint-disable-next-line camelcase
-  UNSAFE_componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps) {
     const {
       audioLists,
       playIndex,
